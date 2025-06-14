@@ -1,5 +1,4 @@
 import clientPromise from "@/lib/mongodb";
-import bcrypt from "bcryptjs";
 
 export async function POST(req) {
   try {
@@ -10,12 +9,13 @@ export async function POST(req) {
     const users = db.collection("users");
 
     const user = await users.findOne({ email });
+
     if (!user) {
       return new Response("Invalid email", { status: 400 });
     }
 
-    const isMatch = await bcrypt.compare(password, user.password);
-    if (!isMatch) {
+    // Simple plain-text password comparison (NOT for production)
+    if (user.password !== password) {
       return new Response("Invalid password", { status: 400 });
     }
 
