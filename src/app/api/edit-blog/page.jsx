@@ -18,7 +18,7 @@ export default function EditBlogPage() {
 
   useEffect(() => {
     if (id) {
-      fetch(`/api/blogs/${id}`)
+      fetch(`/http://localhost:3000/blogs/${id}`)
         .then(res => res.json())
         .then(data => {
           setForm({
@@ -38,7 +38,7 @@ export default function EditBlogPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    const res = await fetch('/api/blogs/edit', {
+    const res = await fetch('/http://localhost:3000/blogs/edit', {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ ...form, id }),
