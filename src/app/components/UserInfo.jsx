@@ -7,6 +7,7 @@ export default function UserInfo() {
   return (
     <div>
         <p>{JSON.stringify(session)}</p>
+
     </div>
   )
 }

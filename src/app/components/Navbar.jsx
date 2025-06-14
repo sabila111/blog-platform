@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import React from 'react'
 import LoginButton from './LoginButton'
+import UserInfo from './UserInfo'
 
 
 export default function Navbar() {
@@ -16,7 +17,7 @@ export default function Navbar() {
         
         <div className="flex space-x-4">
           <LoginButton></LoginButton>
-          
+          <UserInfo></UserInfo>
           <Link href="/register" className="bg-white border-2 border-blue-800  text-blue-800 font-bold py-2 px-6 rounded-full shadow-md transition duration-300 ease-in-out transform hover:scale-105">
               Register
           </Link>
